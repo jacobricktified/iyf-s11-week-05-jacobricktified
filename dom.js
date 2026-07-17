@@ -30,6 +30,8 @@ console.log(contents);
 const form = document.getElementById("contact-form");
 console.log(form);
 // 4. The email input
+const emailInput = document.getElementById("email");
+console.log(emailInput);
 // 5. All list items in the nav
 // 6. The first .nav-link
 // 7. The last paragraph
