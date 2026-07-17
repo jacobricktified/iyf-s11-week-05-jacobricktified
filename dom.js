@@ -20,6 +20,11 @@ console.log("querySelectorAll:", allLinks);
 
 // Practice: Select these elements
 // 1. The h1 element
+// ==============================
+// 1. The h1 element
+// ==============================
+const heading = document.querySelector("h1");
+console.log(heading);
 // 2. All elements with class "content"
 // 3. The form with id "contact-form"
 // 4. The email input
