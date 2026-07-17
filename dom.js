@@ -33,5 +33,7 @@ console.log(form);
 const emailInput = document.getElementById("email");
 console.log(emailInput);
 // 5. All list items in the nav
+const navItems = document.querySelectorAll("nav li");
+console.log(navItems);
 // 6. The first .nav-link
 // 7. The last paragraph
