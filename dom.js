@@ -27,6 +27,8 @@ console.log(heading);
 const contents = document.querySelectorAll(".content");
 console.log(contents);
 // 3. The form with id "contact-form"
+const form = document.getElementById("contact-form");
+console.log(form);
 // 4. The email input
 // 5. All list items in the nav
 // 6. The first .nav-link
