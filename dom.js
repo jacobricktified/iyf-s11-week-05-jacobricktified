@@ -39,3 +39,5 @@ console.log(navItems);
 const firstNavLink = document.querySelector(".nav-link");
 console.log(firstNavLink);
 // 7. The last paragraph
+const lastParagraph = document.querySelector("p:last-of-type");
+console.log(lastParagraph);
