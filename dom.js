@@ -36,4 +36,6 @@ console.log(emailInput);
 const navItems = document.querySelectorAll("nav li");
 console.log(navItems);
 // 6. The first .nav-link
+const firstNavLink = document.querySelector(".nav-link");
+console.log(firstNavLink);
 // 7. The last paragraph
