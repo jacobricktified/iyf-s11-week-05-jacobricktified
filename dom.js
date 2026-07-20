@@ -65,3 +65,15 @@ const parentListItem = firstNavLink.parentElement;
 
 console.log("First nav link:", firstNavLink);
 console.log("Parent <li>:", parentListItem);
+
+
+
+// ----------------------------------
+// 3. Select the article,
+// then get its next sibling (section)
+// ----------------------------------
+const article = document.querySelector("article");
+const nextSection = article.nextElementSibling;
+
+console.log("Article:", article);
+console.log("Next sibling (section):", nextSection);
