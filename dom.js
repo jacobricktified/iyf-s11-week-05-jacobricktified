@@ -42,6 +42,26 @@ console.log(firstNavLink);
 const lastParagraph = document.querySelector("p:last-of-type");
 console.log(lastParagraph);
 
+
+
+const nav = document.querySelector("nav");
+
+// Parent
+console.log(nav.parentElement);          // header
+
+// Children
+console.log(nav.children);               // HTMLCollection
+console.log(nav.firstElementChild);      // ul
+console.log(nav.lastElementChild);       // ul
+
+// Siblings
+const article = document.querySelector("article");
+console.log(article.nextElementSibling);     // section
+console.log(article.previousElementSibling); // null
+
+// Descendants
+const navLinks = nav.querySelectorAll("a");  // all links inside nav
+
 // ==============================
 // Exercise: DOM Navigation
 // ==============================
