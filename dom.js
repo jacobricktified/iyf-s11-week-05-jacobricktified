@@ -181,3 +181,23 @@ Object.assign(container.style, {
     color: "white",
     padding: "20px"
 });
+
+//creating elements
+// Create new element
+const newParagraph = document.createElement("p");
+newParagraph.textContent = "This is a new paragraph!";
+newParagraph.className = "content highlight";
+
+// Add to the page
+const article = document.querySelector("article");
+article.appendChild(newParagraph);  // Add at end
+
+// Insert before another element
+const firstParagraph = article.querySelector("p");
+article.insertBefore(newParagraph, firstParagraph);  // Add before first p
+
+// Modern insertion methods
+article.prepend(newParagraph);         // First child
+article.append(newParagraph);          // Last child
+firstParagraph.before(newParagraph);   // Before sibling
+firstParagraph.after(newParagraph);    // After sibling
