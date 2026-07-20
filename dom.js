@@ -486,3 +486,156 @@ taskList.addEventListener("click", function(event) {
     }
 
 });
+
+// ===========================================
+// Select elements
+// ===========================================
+const form = document.getElementById("contact-form");
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+
+// ===========================================
+// Name Validation
+// ===========================================
+nameInput.addEventListener("input", function (event) {
+
+    const value = event.target.value.trim();
+
+    if (value.length < 2) {
+        showError(nameInput, "Name must be at least 2 characters.");
+    } else {
+        clearError(nameInput);
+    }
+
+});
+
+// ===========================================
+// Email Validation
+// ===========================================
+emailInput.addEventListener("input", function (event) {
+
+    const value = event.target.value.trim();
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(value)) {
+        showError(emailInput, "Please enter a valid email.");
+    } else {
+        clearError(emailInput);
+    }
+
+});
+
+// ===========================================
+// Form Submission
+// ===========================================
+form.addEventListener("submit", function (event) {
+
+    event.preventDefault();
+
+    const formData = new FormData(form);
+
+    const data = Object.fromEntries(formData);
+
+    console.log("Form Data:", data);
+
+    if (isValid(data)) {
+
+        showSuccess("Form submitted successfully!");
+
+        form.reset();
+
+        clearError(nameInput);
+        clearError(emailInput);
+
+    }
+
+});
+
+// ===========================================
+// Check if form is valid
+// ===========================================
+function isValid(data) {
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    let valid = true;
+
+    if (data.name.trim().length < 2) {
+
+        showError(nameInput, "Name must be at least 2 characters.");
+
+        valid = false;
+    }
+
+    if (!emailRegex.test(data.email)) {
+
+        showError(emailInput, "Please enter a valid email.");
+
+        valid = false;
+    }
+
+    return valid;
+
+}
+
+// ===========================================
+// Show Error
+// ===========================================
+function showError(input, message) {
+
+    input.classList.add("error");
+
+    let error = input.nextElementSibling;
+
+    if (!error || !error.classList.contains("error-message")) {
+
+        error = document.createElement("div");
+
+        error.classList.add("error-message");
+
+        input.insertAdjacentElement("afterend", error);
+
+    }
+
+    error.textContent = message;
+
+}
+
+// ===========================================
+// Clear Error
+// ===========================================
+function clearError(input) {
+
+    input.classList.remove("error");
+
+    const error = input.nextElementSibling;
+
+    if (error && error.classList.contains("error-message")) {
+
+        error.remove();
+
+    }
+
+}
+
+// ===========================================
+// Show Success Message
+// ===========================================
+function showSuccess(message) {
+
+    let success = document.querySelector(".success-message");
+
+    if (!success) {
+
+        success = document.createElement("div");
+
+        success.classList.add("success-message");
+
+        form.after(success);
+
+    }
+
+    success.textContent = message;
+
+}
