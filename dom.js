@@ -54,3 +54,14 @@ const nav = header.querySelector("nav");
 
 console.log("Header:", header);
 console.log("Nav inside header:", nav);
+
+
+// ----------------------------------
+// 2. Select the first nav-link,
+// then get its parent <li>
+// ----------------------------------
+const firstNavLink = document.querySelector(".nav-link");
+const parentListItem = firstNavLink.parentElement;
+
+console.log("First nav link:", firstNavLink);
+console.log("Parent <li>:", parentListItem);
