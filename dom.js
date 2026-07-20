@@ -41,3 +41,16 @@ console.log(firstNavLink);
 // 7. The last paragraph
 const lastParagraph = document.querySelector("p:last-of-type");
 console.log(lastParagraph);
+
+// ==============================
+// Exercise: DOM Navigation
+// ==============================
+
+// ----------------------------------
+// 1. Select the header, then navigate to the nav inside it
+// ----------------------------------
+const header = document.querySelector("header");
+const nav = header.querySelector("nav");
+
+console.log("Header:", header);
+console.log("Nav inside header:", nav);
