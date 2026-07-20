@@ -77,3 +77,13 @@ const nextSection = article.nextElementSibling;
 
 console.log("Article:", article);
 console.log("Next sibling (section):", nextSection);
+
+// ----------------------------------
+// 4. Select the ul,
+// then get all its child li elements
+// ----------------------------------
+const ul = document.querySelector(".nav-list");
+const listItems = ul.children;
+
+console.log("UL:", ul);
+console.log("Child <li> elements:", listItems);
