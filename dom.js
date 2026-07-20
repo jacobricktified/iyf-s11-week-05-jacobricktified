@@ -327,3 +327,58 @@ resetBtn.addEventListener("click", () => {
     count = 0;
     counterDisplay.textContent = count;
 });
+
+
+
+// ==========================================
+// Task 10.2 - Keyboard Shortcuts
+// ==========================================
+
+// Select the form and all its inputs
+const form = document.getElementById("contact-form");
+const inputs = form.querySelectorAll("input");
+
+// Listen for keyboard shortcuts
+document.addEventListener("keydown", function (event) {
+
+    // =====================================
+    // Ctrl + S -> Show Saved! alert
+    // =====================================
+    if (event.ctrlKey && event.key === "s") {
+        event.preventDefault(); // Stops the browser Save dialog
+        alert("Saved!");
+    }
+
+    // =====================================
+    // Escape -> Clear all form inputs
+    // =====================================
+    if (event.key === "Escape") {
+        inputs.forEach(input => {
+            input.value = "";
+        });
+
+        alert("Form cleared!");
+    }
+
+    // =====================================
+    // Ctrl + Enter -> Submit the form
+    // =====================================
+    if (event.ctrlKey && event.key === "Enter") {
+        event.preventDefault(); // Prevent default browser behavior
+        form.requestSubmit();   // Submit the form
+    }
+});
+
+// ==========================================
+// Handle form submission
+// ==========================================
+form.addEventListener("submit", function (event) {
+
+    // Prevent page refresh
+    event.preventDefault();
+
+    alert("Form submitted successfully!");
+
+    console.log("Name:", document.getElementById("name").value);
+    console.log("Email:", document.getElementById("email").value);
+});
