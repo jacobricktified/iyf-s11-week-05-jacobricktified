@@ -217,3 +217,9 @@ article.innerHTML = "";  // Simple but rebuilds DOM
 while (article.firstChild) {
     article.removeChild(article.firstChild);
 }
+
+//cloning elements
+const navItem = document.querySelector(".nav-link").parentElement;
+const clone = navItem.cloneNode(true);  // true = deep clone
+clone.querySelector("a").textContent = "New Link";
+document.querySelector(".nav-list").appendChild(clone);
