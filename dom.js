@@ -166,4 +166,18 @@ link.removeAttribute("target");
 const element = document.querySelector("[data-id]");
 console.log(element.dataset.id);        // "123"
 console.log(element.dataset.category);  // "tech"
-element.dataset.newAttr = "value";      // Creates data-new-attr
+element.dataset.newAttr = "value";    // Creates data-new-attr
+// styles
+const container = document.querySelector(".container");
+
+// Inline styles
+container.style.backgroundColor = "#f0f0f0";
+container.style.padding = "30px";
+container.style.borderRadius = "8px";
+
+// Multiple styles (use classes instead when possible!)
+Object.assign(container.style, {
+    backgroundColor: "#333",
+    color: "white",
+    padding: "20px"
+});
