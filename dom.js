@@ -382,3 +382,107 @@ form.addEventListener("submit", function (event) {
     console.log("Name:", document.getElementById("name").value);
     console.log("Email:", document.getElementById("email").value);
 });
+
+// =======================================
+// Delegated Task List
+// =======================================
+
+// ---------------------------
+// Create heading
+// ---------------------------
+const heading = document.createElement("h2");
+heading.textContent = "Task List";
+document.body.appendChild(heading);
+
+// ---------------------------
+// Create input
+// ---------------------------
+const input = document.createElement("input");
+input.type = "text";
+input.placeholder = "Enter a new task";
+document.body.appendChild(input);
+
+// ---------------------------
+// Create Add button
+// ---------------------------
+const addButton = document.createElement("button");
+addButton.textContent = "Add Task";
+document.body.appendChild(addButton);
+
+// ---------------------------
+// Create task list
+// ---------------------------
+const taskList = document.createElement("ul");
+document.body.appendChild(taskList);
+
+// =======================================
+// Function to create a task
+// =======================================
+function addTask(taskText) {
+
+    if (taskText.trim() === "") return;
+
+    // Create list item
+    const li = document.createElement("li");
+    li.textContent = taskText;
+
+    // Create delete button
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete";
+    deleteBtn.classList.add("delete-btn");
+
+    // Add delete button to list item
+    li.appendChild(deleteBtn);
+
+    // Add list item to ul
+    taskList.appendChild(li);
+
+    // Clear input
+    input.value = "";
+}
+
+// =======================================
+// Add Task Button
+// =======================================
+addButton.addEventListener("click", () => {
+    addTask(input.value);
+});
+
+// =======================================
+// Press Enter to add task
+// =======================================
+input.addEventListener("keydown", (event) => {
+
+    if (event.key === "Enter") {
+        addTask(input.value);
+    }
+
+});
+
+// =======================================
+// Event Delegation
+// ONE event listener for the entire list
+// =======================================
+taskList.addEventListener("click", function(event) {
+
+    // ---------------------------
+    // Delete button clicked
+    // ---------------------------
+    if (event.target.classList.contains("delete-btn")) {
+
+        event.target.parentElement.remove();
+
+        return;
+    }
+
+    // ---------------------------
+    // Task clicked
+    // Toggle completed class
+    // ---------------------------
+    if (event.target.tagName === "LI") {
+
+        event.target.classList.toggle("completed");
+
+    }
+
+});
