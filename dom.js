@@ -87,3 +87,13 @@ const listItems = ul.children;
 
 console.log("UL:", ul);
 console.log("Child <li> elements:", listItems);
+
+// ----------------------------------
+// 5. Start from the footer
+// and navigate up to the body
+// ----------------------------------
+const footer = document.querySelector("footer");
+const body = footer.parentElement;
+
+console.log("Footer:", footer);
+console.log("Body:", body);
