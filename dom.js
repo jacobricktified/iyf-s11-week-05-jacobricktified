@@ -143,3 +143,27 @@ article.innerHTML = `
 // Safer: textContent (escapes HTML)
 const userInput = "<script>alert('hack!')</script>";
 article.textContent = userInput;  // Displays as text, not executed
+
+// attributes
+const link = document.querySelector(".nav-link");
+
+// Get attribute
+console.log(link.getAttribute("href"));
+console.log(link.href);  // Property access
+
+// Set attribute
+link.setAttribute("href", "https://example.com");
+link.href = "https://example.com";  // Same result
+
+// Check attribute
+console.log(link.hasAttribute("target"));
+
+// Remove attribute
+link.removeAttribute("target");
+
+// Data attributes
+// <element data-id="123" data-category="tech">
+const element = document.querySelector("[data-id]");
+console.log(element.dataset.id);        // "123"
+console.log(element.dataset.category);  // "tech"
+element.dataset.newAttr = "value";      // Creates data-new-attr
