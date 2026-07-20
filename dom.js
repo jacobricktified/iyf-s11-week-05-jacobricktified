@@ -223,3 +223,38 @@ const navItem = document.querySelector(".nav-link").parentElement;
 const clone = navItem.cloneNode(true);  // true = deep clone
 clone.querySelector("a").textContent = "New Link";
 document.querySelector(".nav-list").appendChild(clone);
+
+// =========================================
+// Function: Add a new navigation item
+// =========================================
+function addNavItem(text, href) {
+    // Select the navigation list (<ul>)
+    const navList = document.querySelector(".nav-list");
+
+    // Create a new <li> element
+    const li = document.createElement("li");
+
+    // Create a new <a> element
+    const link = document.createElement("a");
+
+    // Set the link text
+    link.textContent = text;
+
+    // Set the href attribute
+    link.href = href;
+
+    // Add the nav-link class
+    link.classList.add("nav-link");
+
+    // Put the <a> inside the <li>
+    li.appendChild(link);
+
+    // Add the <li> to the navigation list
+    navList.appendChild(li);
+}
+
+// =========================================
+// Add new navigation items
+// =========================================
+addNavItem("Blog", "/blog");
+addNavItem("Portfolio", "/portfolio");
