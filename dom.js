@@ -258,3 +258,72 @@ function addNavItem(text, href) {
 // =========================================
 addNavItem("Blog", "/blog");
 addNavItem("Portfolio", "/portfolio");
+
+// ============================================
+// Click Counter Application
+// ============================================
+
+// Counter starts at 0
+let count = 0;
+
+// -------------------------------
+// Create heading
+// -------------------------------
+const heading = document.createElement("h2");
+heading.textContent = "Click Counter";
+document.body.appendChild(heading);
+
+// -------------------------------
+// Create counter display
+// -------------------------------
+const counterDisplay = document.createElement("h1");
+counterDisplay.textContent = count;
+document.body.appendChild(counterDisplay);
+
+// -------------------------------
+// Create Increase Button
+// -------------------------------
+const increaseBtn = document.createElement("button");
+increaseBtn.textContent = "+";
+document.body.appendChild(increaseBtn);
+
+// -------------------------------
+// Create Decrease Button
+// -------------------------------
+const decreaseBtn = document.createElement("button");
+decreaseBtn.textContent = "-";
+document.body.appendChild(decreaseBtn);
+
+// -------------------------------
+// Create Reset Button
+// -------------------------------
+const resetBtn = document.createElement("button");
+resetBtn.textContent = "Reset";
+document.body.appendChild(resetBtn);
+
+// -------------------------------
+// Increase Event
+// -------------------------------
+increaseBtn.addEventListener("click", () => {
+    count++;
+    counterDisplay.textContent = count;
+});
+
+// -------------------------------
+// Decrease Event
+// Count cannot go below 0
+// -------------------------------
+decreaseBtn.addEventListener("click", () => {
+    if (count > 0) {
+        count--;
+        counterDisplay.textContent = count;
+    }
+});
+
+// -------------------------------
+// Reset Event
+// -------------------------------
+resetBtn.addEventListener("click", () => {
+    count = 0;
+    counterDisplay.textContent = count;
+});
