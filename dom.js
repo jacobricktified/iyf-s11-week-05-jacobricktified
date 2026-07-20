@@ -128,3 +128,18 @@ console.log(h1.innerText);       // Only visible text
 
 // Modifying text
 h1.textContent = "New Title";
+//html content
+const article = document.querySelector("article");
+
+// Reading HTML
+console.log(article.innerHTML);
+
+// Modifying HTML (careful with security!)
+article.innerHTML = `
+    <h2>Updated Article</h2>
+    <p>This is new content.</p>
+`;
+
+// Safer: textContent (escapes HTML)
+const userInput = "<script>alert('hack!')</script>";
+article.textContent = userInput;  // Displays as text, not executed
