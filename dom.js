@@ -117,3 +117,14 @@ const body = footer.parentElement;
 
 console.log("Footer:", footer);
 console.log("Body:", body);
+
+
+// text content 
+const h1 = document.querySelector("h1");
+
+// Reading text
+console.log(h1.textContent);     // Includes hidden text
+console.log(h1.innerText);       // Only visible text
+
+// Modifying text
+h1.textContent = "New Title";
